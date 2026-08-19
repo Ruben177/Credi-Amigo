@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credi-Amigo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Credi-Amigo</h1>
+      <p>Control sencillo de clientes, préstamos y pagos</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats">
+      <div class="card"><span>Clientes</span><strong id="statClientes">0</strong></div>
+      <div class="card"><span>Prestado</span><strong id="statPrestado">$0</strong></div>
+      <div class="card"><span>Por cobrar</span><strong id="statPendiente">$0</strong></div>
+      <div class="card"><span>Cobrado</span><strong id="statCobrado">$0</strong></div>
+    </section>
+
+    <section class="panel">
+      <h2>1. Registrar cliente</h2>
+      <form id="clienteForm" class="grid">
+        <input id="nombre" placeholder="Nombre completo" required />
+        <input id="telefono" placeholder="Teléfono" />
+        <input id="nota" placeholder="Nota / referencia" />
+        <button type="submit">Guardar cliente</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>2. Crear préstamo</h2>
+      <form id="prestamoForm" class="grid">
+        <select id="clientePrestamo" required>
+          <option value="">Selecciona cliente</option>
+        </select>
+        <input id="monto" type="number" min="1" step="0.01" placeholder="Monto prestado" required />
+        <input id="interes" type="number" min="0" step="0.01" placeholder="Interés %" required />
+        <input id="fechaInicio" type="date" required />
+        <input id="fechaCobro" type="date" required />
+        <button type="submit">Crear préstamo</button>
+      </form>
+      <p class="hint">El total se calcula como monto + interés simple.</p>
+    </section>
+
+    <section class="panel">
+      <h2>3. Registrar pago</h2>
+      <form id="pagoForm" class="grid">
+        <select id="prestamoPago" required>
+          <option value="">Selecciona préstamo</option>
+        </select>
+        <input id="montoPago" type="number" min="0.01" step="0.01" placeholder="Monto del pago" required />
+        <input id="fechaPago" type="date" required />
+        <button type="submit">Registrar pago</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Préstamos</h2>
+        <input id="buscar" placeholder="Buscar cliente..." />
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Prestado</th>
+              <th>Interés</th>
+              <th>Total</th>
+              <th>Pagado</th>
+              <th>Pendiente</th>
+              <th>Vence</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tablaPrestamos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Historial de pagos</h2>
+        <button id="exportarBtn" class="secondary">Exportar respaldo</button>
+      </div>
+      <div id="historialPagos" class="history"></div>
+    </section>
+
+    <section class="panel danger-zone">
+      <h2>Respaldo</h2>
+      <p>Puedes exportar tus datos a un archivo JSON y restaurarlos después.</p>
+      <div class="backup-actions">
+        <label class="file-label">
+          Restaurar respaldo
+          <input id="importarArchivo" type="file" accept=".json" />
+        </label>
+        <button id="borrarTodoBtn" class="danger">Borrar todos los datos</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Credi-Amigo • Prototipo local</footer>
+  <script src="app.js"></script>
+</body>
+</html>
