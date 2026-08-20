@@ -1,3 +1,8 @@
+const SUPABASE_URL = 'https://orttrwtrsaltowrqckym.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ylnt_FLdN-83tMjcZDQuTA_jjAW55QT';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
 const $ = (id) => document.getElementById(id);
 const fmt = (n) => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN'}).format(Number(n||0));
 const hoy = () => new Date().toISOString().slice(0,10);
