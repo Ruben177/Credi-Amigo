@@ -155,7 +155,7 @@ async function cargarPerfil(userId) {
   );
 
   estado.limite.textContent =
-    ${dinero(limite)} MXN;
+    dinero(limite) + " MXN";
 
   estado.monto.value = limite;
   estado.monto.min = limite;
@@ -262,7 +262,7 @@ $("prestamoForm").addEventListener("submit", async (e) => {
   ) {
     return mensaje(
       estado.prestamoMsg,
-      El monto debe respetar tu límite de ${dinero(limite)}.,
+      "El monto debe respetar tu límite de " + dinero(limite) + ".",
       true
     );
   }
@@ -314,7 +314,7 @@ $("prestamoForm").addEventListener("submit", async (e) => {
 
   mensaje(
     estado.prestamoMsg,
-    Solicitud por ${dinero(monto)} enviada correctamente.
+    "Solicitud por " + dinero(monto) + " enviada correctamente."
   );
 });
 
