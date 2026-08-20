@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.cliente-app {
+  width: min(100% - 32px, 620px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+#authSection,
+#cuentaSection {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+#authSection > h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 34px;
+  color: #1677ff;
+}
+
+#authSection > p {
+  text-align: center;
+  color: #667085;
+}
+
+#registroBox,
+#loginBox {
+  margin-top: 28px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #172033;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #172033;
+  outline: none;
+}
+
+input:focus {
+  border-color: #1677ff;
+  box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.12);
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 13px 16px;
+  background: #1677ff;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+form button {
+  margin-top: 12px;
+}
+
+button:hover {
+  opacity: 0.92;
+}
+
+#mostrarLogin,
+#mostrarRegistro {
+  padding: 0;
+  background: transparent;
+  color: #1677ff;
+}
+
+#authMensaje,
+#datosMensaje,
+#prestamoMensaje {
+  min-height: 22px;
+  margin-top: 15px;
+  font-weight: 700;
+}
+
+#cuentaSection {
+  display: grid;
+  gap: 18px;
+}
+
+#cuentaSection > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+#cuentaSection > header h1 {
+  margin: 0;
+  color: #1677ff;
+}
+
+#cerrarSesionBtn {
+  background: #475467;
+}
+
+#cuentaSection > section {
+  padding: 20px;
+  border: 1px solid #eaecf0;
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+#limiteCredito {
+  display: block;
+  margin-top: 8px;
+  font-size: 30px;
+  color: #12b76a;
+}
+
+#miPrestamo,
+#misPagos {
+  line-height: 1.6;
+  color: #475467;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .cliente-app {
+    width: min(100% - 20px, 620px);
+    padding: 18px 0;
+  }
+
+  #authSection,
+  #cuentaSection {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  #cuentaSection > header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #cerrarSesionBtn {
+    width: 100%;
+  }
+
+  #limiteCredito {
+    font-size: 25px;
+  }
+}
