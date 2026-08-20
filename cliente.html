@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credi-Amigo</title>
+
+  <link rel="stylesheet" href="cliente.css">
+</head>
+
+<body>
+
+  <main class="cliente-app">
+
+    <section id="authSection">
+      <h1>Credi-Amigo</h1>
+      <p>Préstamos fáciles y seguros</p>
+
+      <div id="registroBox">
+        <h2>Crear cuenta</h2>
+
+        <form id="registroForm">
+          <label>Correo electrónico</label>
+          <input
+            type="email"
+            id="registroEmail"
+            required
+          >
+
+          <label>Contraseña</label>
+          <input
+            type="password"
+            id="registroPassword"
+            minlength="6"
+            required
+          >
+
+          <button type="submit">
+            Crear mi cuenta
+          </button>
+        </form>
+
+        <p>
+          ¿Ya tienes cuenta?
+          <button type="button" id="mostrarLogin">
+            Iniciar sesión
+          </button>
+        </p>
+      </div>
+
+      <div id="loginBox" hidden>
+        <h2>Iniciar sesión</h2>
+
+        <form id="loginForm">
+          <label>Correo electrónico</label>
+          <input
+            type="email"
+            id="loginEmail"
+            required
+          >
+
+          <label>Contraseña</label>
+          <input
+            type="password"
+            id="loginPassword"
+            required
+          >
+
+          <button type="submit">
+            Entrar
+          </button>
+        </form>
+
+        <p>
+          ¿No tienes cuenta?
+          <button type="button" id="mostrarRegistro">
+            Crear cuenta
+          </button>
+        </p>
+      </div>
+
+      <p id="authMensaje"></p>
+    </section>
+
+
+    <section id="cuentaSection" hidden>
+
+      <header>
+        <h1>Mi Credi-Amigo</h1>
+        <button id="cerrarSesionBtn">
+          Cerrar sesión
+        </button>
+      </header>
+
+      <section>
+        <h2>Mi crédito disponible</h2>
+
+        <p>
+          Tu límite actual:
+          <strong id="limiteCredito">$500.00 MXN</strong>
+        </p>
+      </section>
+
+
+      <section id="datosPersonalesSection">
+        <h2>Completa tus datos</h2>
+
+        <form id="datosForm">
+
+          <label>Nombre completo</label>
+          <input
+            type="text"
+            id="nombreCompleto"
+            required
+          >
+
+          <label>Teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            required
+          >
+
+          <label>Fecha de nacimiento</label>
+          <input
+            type="date"
+            id="fechaNacimiento"
+            required
+          >
+
+          <button type="submit">
+            Guardar mis datos
+          </button>
+
+        </form>
+
+        <p id="datosMensaje"></p>
+      </section>
+
+
+      <section id="prestamoSection">
+        <h2>Solicitar préstamo</h2>
+
+        <p>
+          Tu primer préstamo disponible es de hasta
+          <strong>$500 MXN</strong>.
+        </p>
+
+        <form id="prestamoForm">
+
+          <label>Monto solicitado</label>
+
+          <input
+            type="number"
+            id="montoSolicitado"
+            min="1"
+            max="500"
+            step="1"
+            required
+          >
+
+          <button type="submit">
+            Solicitar préstamo
+          </button>
+
+        </form>
+
+        <p id="prestamoMensaje"></p>
+      </section>
+
+
+      <section>
+        <h2>Mi préstamo</h2>
+
+        <div id="miPrestamo">
+          Todavía no tienes un préstamo activo.
+        </div>
+      </section>
+
+
+      <section>
+        <h2>Mis pagos</h2>
+
+        <div id="misPagos">
+          Todavía no hay pagos registrados.
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="cliente.js"></script>
+
+</body>
+</html>
