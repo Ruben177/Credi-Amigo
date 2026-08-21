@@ -13,6 +13,32 @@ const texto = (v) => String(v ?? "").trim();
 const normal = (v) => texto(v).toLowerCase();
 const dinero = (v) => Number(v ?? 0).toLocaleString("es-MX", { style: "currency", currency: "MXN" });
 const fecha = (v) => v ? new Date(v).toLocaleDateString("es-MX") : "—";
+const fechaNacimientoISO = (v) => {
+  const valor = texto(v);
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(valor)) {
+    return valor;
+  }
+
+  const partes = valor.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!partes) return "";
+
+  const dia = Number(partes[1]);
+  const mes = Number(partes[2]);
+  const anio = Number(partes[3]);
+
+  const prueba = new Date(anio, mes - 1, dia);
+
+  if (
+    prueba.getFullYear() !== anio ||
+    prueba.getMonth() !== mes - 1 ||
+    prueba.getDate() !== dia
+  ) {
+    return "";
+  }
+
+  return ${partes[3]}-${partes[2]}-${partes[1]};
+};
 const campo = (obj, nombres, defecto = null) => {
   for (const n of nombres) if (obj?.[n] !== undefined && obj?.[n] !== null) return obj[n];
   return defecto;
@@ -100,7 +126,7 @@ $("datosForm").addEventListener("submit", async (e) => {
   const datos = {
     nombre_completo: texto($("nombreCompleto").value),
     telefono: texto($("telefono").value),
-    fecha_nacimiento: $("fechaNacimiento").value
+    fecha_nacimiento: fechaNacimientoISO($("fechaNacimiento").value)
   };
 
   if (
