@@ -123,10 +123,18 @@
 
           <label>Fecha de nacimiento</label>
           <input
-            type="date"
-            id="fechaNacimiento"
-            required
-          >
+  type="text"
+  id="fechaNacimiento"
+  placeholder="DD/MM/AAAA"
+  inputmode="numeric"
+  maxlength="10"
+  pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"
+  required
+>
+            
+            
+            
+          
 
           <button type="submit">
             Guardar mis datos
